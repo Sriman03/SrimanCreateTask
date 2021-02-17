@@ -1,0 +1,141 @@
+<html>
+    <head>
+      <title>Create Task Project</title>
+      <center> <h1>Covid Symptoms Checker!</h1> </center>
+      <hr>
+      <br>
+      <script>
+            var questions = [
+              "Are you experiencing Fever or chills?",
+            "Are you experiencing Coughs?",
+            "Are you experiencing a shortness of breath or difficulty breathing",
+            "Are you experiencing any Fatigue?",
+            "Are you experiencing any Muscle pain?",
+            "Are you experiencing any Headaches?",
+            "Have you recently lost your sense of taste or smell?",
+            "Are you experiencing any Congestion or runny noses lately?",
+            "Are you experiencing any Nausea or Vomitting?",
+            "Are you experiencing any Diarrhea?"];
+            var results = ["Yes", "Yes", "Yes", "Yes", "Yes","Yes", "Yes", "Yes", "Yes", "Yes",
+                            ];
+            var answers = [];//Populate this with user answers
+            var index = 0;//add one to this in getUserAnswers to advance
+            var score = 0;//this gets added to in the checkAnswers() function
+            var table = ""; //this gets created in the displayResult() function
+            function getUserAnswers()
+            {
+              answers[index] = document.getElementById("ans").value;
+              index = index+1;
+              if( index >= 10)
+              {
+              checkAnswers();
+              }
+              document.getElementById('x').innerHTML=questions[index];
+              //Where you populate the answers array
+              //Very similar to pop() array
+              //Once index equals pics.length
+            }
+
+
+  function checkAnswers()
+            {
+
+            if(answers[0] == results[0])
+            {
+            score++;
+            }
+            if(answers[1] == results[1])
+            {
+            score++;
+            }
+            if(answers[2] == results[2])
+            {
+            score++;
+            }
+            if(answers[3] == results[3])
+            {
+            score++;
+            }
+            if(answers[4] == results[4])
+            {
+            score++;
+          }if(answers[5] == results[5])
+            {
+            score++;
+            }
+            if(answers[6] == results[6])
+            {
+            score++;
+            }
+            if(answers[7] == results[7])
+            {
+            score++;
+            }
+            if(answers[8] == results[8])
+            {
+            score++;
+            }
+            if(answers[9] == results[9])
+            {
+            score++;
+            }
+
+            function displayResult()
+                    {}
+                            table = table + "Score:" + "&nbsp" + score + "/10"
+                            document.getElementById('display').innerHTML = table;
+                            document.getElementById('restart').style.visibility = "visible";
+                      }
+          function reset()
+          {
+            score = 0;
+            table = "";
+            var target = 1;
+          for(var i=answers.length-1;i>=0; i--)
+          {
+            if(answers[i] == target)
+          {
+            answers.splice(i,1);
+          }
+          }
+          document.getElementById('display').innerHTML = table ;
+          document.getElementById('x').innerHTML = questions[0];
+          document.getElementById('restart').style.visibility = "hidden";
+          index = 0;
+        }
+
+          function hide()
+          {
+            document.getElementById('restart').style.visibility = "hidden";
+          }
+      </script>
+    </head>
+    <style>
+    body {background-image: url(https://wgbh.brightspotcdn.com/dims4/default/4e9df79/2147483647/strip/true/crop/1440x630+0+0/resize/1600x700!/format/jpg/quality/70/?url=https%3A%2F%2Fwgbh.brightspotcdn.com%2F2a%2Fda%2F4faf060c4410ac15990c888eafe2%2Fcovid-background.png);
+      background-size: 100% 100%;
+        color: white;
+        font-family: arial;
+        font-size: 20px;
+      }
+    h1   {color: white;font-size: 20px;}
+    p    {color: white;font-size: 20px;}
+    </style>
+    <body onload="hide()">
+      <h1> Hello, Welcome to the Covid Symptom Checker website! <br>
+        This website is a great way to find out if you need to get tested for Covid-19. <br>
+        Please just answer the questions with a Yes or No and once you get your score click the link below to find out what that score means. <br>
+        If you are ready please click Next. <br><br><br><br><br><br>
+      <span id="x"></span>
+    <center>  <span id="display"></span> <br> </center>
+      <br>
+      <br><br>
+      <span id="display"></span>
+      <br><br>
+      <input id="ans" type="text" onfocus="this.value=''">
+      <input = type="button" value="Next" onclick="getUserAnswers()">
+      <input id="restart" type="button" value="Restart" onload="hide()" onclick="reset()">
+      <br><br><br><br><br>
+      <a href="file:///C:/Users/sdooshetty126/Desktop/APCSP/results.html">Click here to see what your score means!</a>
+
+    </body>
+</html>
